@@ -32,7 +32,26 @@
     align-items: center;
 }
 
-.div__1{
+.section{
     background-image: url(./img/logo.png);
+    display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.newsletter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer__info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer__info--item{
+    list-style: none;
 }
