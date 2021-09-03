@@ -13,7 +13,7 @@
 .footer__menu{
     display: flex;
     list-style: none;
-    justify-content: flex-end;   
+    justify-content: space-between;   
 }
 .menu li{
     margin: 20px; 
@@ -22,10 +22,10 @@
 }
 
 .footer__menu li{
-    margin: 20px; 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border: solid 1px rgb(177, 177, 177);
-    width: 300px;
+    width: 25%;
+    height: 60px;
 
     display: flex;
     justify-content: center;
