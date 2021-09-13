@@ -1,0 +1,16 @@
+@media all and (min-width: 1000px){
+    .menu__container{
+        display: block;
+    }
+}
+
+
+@media all and (max-width: 1000px){
+    .nav {
+        flex-direction: column;
+    }
+
+    .section__item-text h3 {
+        font-size: 6em;
+    }
+}

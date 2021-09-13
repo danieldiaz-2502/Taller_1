@@ -6,7 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Bufanda mágica</title>
+
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+/>
     <link rel="stylesheet" href="./styles/menu.css">
+    <link rel="stylesheet" href="./styles/mobile.css">
 </head>
 
 <body>
@@ -15,7 +21,7 @@
         <a href="#">
             <img src="./img/logo.png" alt="La Bufanda Mágica Logo" class="logo">
         </a>
-        <div class="menu__container menu__container--mobile">
+        <div class="menu__container menu__container">
         <ul class="menu">
             <li>INICIO</li>
             <li>TOP</li>
@@ -26,55 +32,56 @@
     </div>
     </nav>
 
-    <section class="section">
-        <ul>
-            <li class="section__item">
+    <section class="section__item">
                 <div class="section__item-text">
                     <h3>TODO EN UNO</h3>
                     <p>Por qué tener muchas prendas cuando las puedes conseguir todas en una sola</p>
                 </div>
                 <img src="./img/banner.png" alt="banner_img">
-            </li>
-            <div class="swiper-container mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="section__item swiper-slide">
-                        <div class="section__item-text">
-                            <h3>MUCHAS POSIBILIDADES</h3>
-                            <p>Se puede poner de más de 20 maneras diferentes para que diseñes todos los looks
-                                que
-                                desees</p>
-                        </div>
-                        <img src="./img/slide1.png" alt="slide_img1">
+    </section>
+
+    <section>
+<!-- Slider main container -->
+<div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+                <div class="section__item swiper-slide">
+                    <div class="section__item-text">
+                        <h3>MUCHAS POSIBILIDADES</h3>
+                        <p>Se puede poner de más de 20 maneras diferentes para que diseñes todos los looks
+                            que
+                            desees</p>
                     </div>
-                    <div class="section__item swiper-slide">
-                        <div class="section__item-text">
-                            <h3>FÁCIL DE LLEVAR</h3>
-                            <p>Al momento de salir no ocupa mucho espacio, viene en una práctica presentación
-                                para llevar a todos lados</p>
-                        </div>
-                        <img src="./img/slide2.png" alt="slide_img1">
-                    </div>
-                    <div class="section__item swiper-slide">
-                        <div class="section__item-text">
-                            <h3>CÓMODA Y CÁLIDA</h3>
-                            <p>Además de que es un buen abrigo contra el frío, su material es muy suave y no
-                                irrita la piel</p>
-                        </div>
-                        <img src="./img/slide3.png" alt="slide_img1">
-                    </div>
+                    <img src="./img/slide1.png" alt="slide_img1">
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+                <div class="section__item swiper-slide">
+                    <div class="section__item-text">
+                        <h3>FÁCIL DE LLEVAR</h3>
+                        <p>Al momento de salir no ocupa mucho espacio, viene en una práctica presentación
+                            para llevar a todos lados</p>
+                    </div>
+                    <img src="./img/slide2.png" alt="slide_img1">
+                </div>
+                <div class="section__item swiper-slide">
+                    <div class="section__item-text">
+                        <h3>CÓMODA Y CÁLIDA</h3>
+                        <p>Además de que es un buen abrigo contra el frío, su material es muy suave y no
+                            irrita la piel</p>
+                    </div>
+                    <img src="./img/slide3.png" alt="slide_img1">
+                </div>
             </div>
-            <li class="section__item">
-                <div class="section__item-text section__item-text--contrast">
-                    <h3>COLORES</h3>
-                    <a>Ver todo</a>
-                </div>
-                <img src="./img/colores_back.png" alt="banner_img">
-            </li>
-        </ul>
+            <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+        </div>
+    </section>
+
+    <section class="section__item">
+            <div class="section__item-text section__item-text--contrast">
+                <h3>COLORES</h3>
+                <a>Ver todo</a>
+            </div>
+            <img src="./img/colores_back.png" alt="banner_img">
     </section>
 
     <footer>
@@ -116,17 +123,14 @@
             </ul>
         </nav>
     </footer>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script>
-        var swiper = new Swiper(".mySwiper", {
+        var swiper = new Swiper(".swiper", {
             spaceBetween: 30,
             centeredSlides: true,
             autoplay: {
                 delay: 2500,
                 disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
             },
             navigation: {
                 nextEl: ".swiper-button-next",
