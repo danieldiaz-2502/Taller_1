@@ -12,9 +12,10 @@
 <body>
 
     <nav class="nav">
-        <figure>
-            <img src="./img/logo.png" alt="La Bufanda Mágica Logo">
-        </figure>
+        <a href="#">
+            <img src="./img/logo.png" alt="La Bufanda Mágica Logo" class="logo">
+        </a>
+        <div class="menu__container menu__container--mobile">
         <ul class="menu">
             <li>INICIO</li>
             <li>TOP</li>
@@ -22,6 +23,7 @@
             <li>TUTORIAL</li>
             <li>AYUDA</li>
         </ul>
+    </div>
     </nav>
 
     <section class="section">
@@ -33,20 +35,38 @@
                 </div>
                 <img src="./img/banner.png" alt="banner_img">
             </li>
-            <li class="section__item">
-                <div class="section__container">
-                    <ul class="slider">
-                        <li class="section__item">
-                            <div class="section__item-text">
-                                <h3>MUCHAS POSIBILIDADES</h3>
-                                <p>Se puede poner de más de 20 maneras diferentes para que diseñes todos los looks que
-                                    desees</p>
-                            </div>
-                            <img src="./img/slide1.png" alt="slide_img1">
-                        </li>
-                    </ul>
+            <div class="swiper-container mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="section__item swiper-slide">
+                        <div class="section__item-text">
+                            <h3>MUCHAS POSIBILIDADES</h3>
+                            <p>Se puede poner de más de 20 maneras diferentes para que diseñes todos los looks
+                                que
+                                desees</p>
+                        </div>
+                        <img src="./img/slide1.png" alt="slide_img1">
+                    </div>
+                    <div class="section__item swiper-slide">
+                        <div class="section__item-text">
+                            <h3>FÁCIL DE LLEVAR</h3>
+                            <p>Al momento de salir no ocupa mucho espacio, viene en una práctica presentación
+                                para llevar a todos lados</p>
+                        </div>
+                        <img src="./img/slide2.png" alt="slide_img1">
+                    </div>
+                    <div class="section__item swiper-slide">
+                        <div class="section__item-text">
+                            <h3>CÓMODA Y CÁLIDA</h3>
+                            <p>Además de que es un buen abrigo contra el frío, su material es muy suave y no
+                                irrita la piel</p>
+                        </div>
+                        <img src="./img/slide3.png" alt="slide_img1">
+                    </div>
                 </div>
-            </li>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
             <li class="section__item">
                 <div class="section__item-text section__item-text--contrast">
                     <h3>COLORES</h3>
@@ -63,7 +83,7 @@
             <form>
                 <label for="email">Dirección de correo electrónico</label>
                 <input type="email">
-                <a>SUSCRÍBETE</a>
+                <input type="submit" value="SUSCRÍBETE">
             </form>
         </div>
         <div>
@@ -96,6 +116,24 @@
             </ul>
         </nav>
     </footer>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
 </body>
 
 </html>
