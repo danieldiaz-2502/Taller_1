@@ -5,12 +5,55 @@
 }
 
 
-@media all and (max-width: 1000px){
-    .nav {
-        flex-direction: column;
-    }
+    @media all and (max-width: 1000px){
+        .nav {
+            flex-direction: column;
+        }
 
-    .section__item-text h3 {
-        font-size: 6em;
+        .section__item-text h3 {
+            font-size: 2em;
+        }
+        .section__item-text p {
+            font-size: 1em;
+        }
+        .section__item{
+            display: block;
+        }
+        .section__item {
+                position: relative;
+                width: 90%;
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+        }
+        .section__item img{
+            border-radius: 25px;
+        }
+        .swiper{
+            width: 90%;
+            border-radius: 25px;
+        }
+        .menu{
+                display: flex;
+                list-style: none;
+                width: 100%;
+                left: 0%;
+                top: 0%; 
+        }
+
+
+        .menu__container li{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: white;
+            border: solid 1px white;
+            padding: 8px;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        .footer__menu{
+            display: none;
+        }
     }
-}

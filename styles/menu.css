@@ -24,20 +24,7 @@
 .menu__container{
     display: flex;
 }
-.menu__container--mobile{
-    display: none;
-    position: fixed;
-}
-.menu__container--mobile li{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: white;
-    border: solid 1px white;
-    padding: 8px;
-    width: 33%;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-}
+
 .footer__menu{
     display: flex;
     list-style: none;
@@ -58,18 +45,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.section{
-    background-image: url(./img/logo.png);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.section li{
-    list-style: none;
 }
 
 .newsletter{
@@ -103,6 +78,7 @@
     width: 100%;
 }
 
+
 .slider__item{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
@@ -114,12 +90,7 @@
     align-items: center;
     justify-content: center;
 }
-.section{
-    background-color: blue;
-}
-.section ul{
-    width: 100%;
-}
+
 .section__item{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(255, 255, 255);
@@ -203,3 +174,11 @@
     object-fit: cover;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+    right:10px;
+    padding: 30px;
+    color: rgb(255, 255, 255) !important;
+    fill: white !important;
+    stroke: white !important;
+}
