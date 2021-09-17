@@ -4,7 +4,7 @@
     margin: 0;
 }
 
-.body{
+body{
     font-family: sans-serif;
     overflow-x: hidden;
 }
@@ -55,13 +55,11 @@
     flex-direction: column;
 }
 .newsletter input{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border: none;
     background-color: white;
     border-bottom: 2px solid #000000;
 }
 .newsletter input[type=submit]{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
     padding: 10px;
     border: none;
@@ -80,7 +78,6 @@
 
 
 .slider__item{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
     position: absolute;
     width: 100%;
@@ -138,7 +135,6 @@
 
 .footer__info--item {
     list-style: none;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 0 30px;
 }
 
