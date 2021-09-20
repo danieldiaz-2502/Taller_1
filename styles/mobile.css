@@ -6,27 +6,29 @@
 
 
     @media all and (max-width: 1000px){
+
         .nav {
             flex-direction: column;
         }
 
         .section__item-text h3 {
-            font-size: 2em;
+            font-size: 1.3em;
         }
         .section__item-text p {
-            font-size: 1em;
+            font-size: 0.7em;
         }
         .section__item{
             display: block;
         }
         .section__item {
                 position: relative;
-                width: 100%;
-                height: 300px;
+                width: 90%;
+                height: 200px;
                 display: flex;
+                margin-left: auto;
+                margin-right: auto;
                 align-items: center;
                 justify-content: center;
-                background-color: red;
         }
         .section__item img{
             border-radius: 25px;
@@ -36,25 +38,65 @@
             border-radius: 25px;
         }
         .menu{
-                display: flex;
-                list-style: none;
-                width: 100%;
-                left: 0%;
-                top: 0%; 
+            display: flex;
+            list-style: none;
+            width: 100%;
+            justify-content: center;
         }
-
-
-        .menu__container li{
+        .menu__container{
+            width: 100%;
+        }
+        .newsletter input[type=email]{
+            margin-bottom: 2em;
+        }
+        .menu__container li a{
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            color: white;
             border: solid 1px white;
             padding: 8px;
             width: 100%;
             justify-content: center;
             align-items: center;
             background-color: black;
+            color: #FFF;
+            flex-grow: 2;
+            font-size: 13px;
+            margin: 0;
         }
         .footer__menu{
             display: none;
         }
+        .newsletter__form{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section__item {
+            margin-bottom: 30px;
+        }
+
+        .newsletter {
+            background-color: rgb(240 240 240 / 33%);
+            margin-bottom: 50px;
+        }
+
+    }
+
+    @media all and (max-width: 500px) {
+
+        .menu {
+            flex-wrap: wrap;
+        }
+        .menu__container li a{
+            font-size: 3.2vmin;
+        }
+        .footer__info {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .footer__info--item {
+            margin-bottom: 20px;
+        }
+
+
     }

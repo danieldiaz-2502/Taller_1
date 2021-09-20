@@ -5,7 +5,6 @@
 }
 
 body{
-    font-family: sans-serif;
     overflow-x: hidden;
 }
 
@@ -30,9 +29,11 @@ body{
     list-style: none;
     justify-content: space-between;   
 }
-.menu li{
+.menu li a{
     margin: 20px; 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    color: #000;
 
 }
 
@@ -126,16 +127,24 @@ body{
 .newsletter {
     padding: 40px;
 }
-
-.footer__info li {
-    list-style: none;
-    padding: 10px;
+footer{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
+.footer__info{
+    margin-bottom: 30px;
+}
+.footer__info li{
+    list-style: none;
+    padding: 10px;
+}
+.footer__info li a{
+    color: black;
+    text-decoration: none;
+}
 .footer__info--item {
     list-style: none;
     padding: 0 30px;
+    
 }
 
 
