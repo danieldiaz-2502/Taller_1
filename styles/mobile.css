@@ -10,12 +10,18 @@
         .nav {
             flex-direction: column;
         }
-
+        .menu__mobile{
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .nav a img{
+            display: none;
+        }
         .section__item-text h3 {
-            font-size: 1.3em;
+            font-size: 1.0em;
         }
         .section__item-text p {
-            font-size: 0.7em;
+            font-size: 0.5em;
         }
         .section__item{
             display: block;
@@ -23,7 +29,7 @@
         .section__item {
                 position: relative;
                 width: 90%;
-                height: 200px;
+                height: 150px;
                 display: flex;
                 margin-left: auto;
                 margin-right: auto;
@@ -69,7 +75,10 @@
             display: flex;
             flex-direction: column;
         }
-
+        .footer__info{
+            font-size: 10px;
+            justify-content: center;
+        }
         .section__item {
             margin-bottom: 30px;
         }
@@ -77,6 +86,22 @@
         .newsletter {
             background-color: rgb(240 240 240 / 33%);
             margin-bottom: 50px;
+        }
+
+        .newsletter h2{
+            font-size: 20px;
+        }
+        .section__item-text p{
+            font-size: 12px;
+        }
+        .section__item-text {
+            width: 70%;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            right:5px;
+            padding: 2px;
         }
 
     }
@@ -91,12 +116,17 @@
         }
         .footer__info {
             flex-wrap: wrap;
-            justify-content: flex-start;
         }
 
         .footer__info--item {
             margin-bottom: 20px;
         }
+        .newsletter h2{
+            font-size: 5.2vmin;
+        }
 
+        .section__item-text p{
+            font-size: 2.5vmin;
+        }
 
     }
