@@ -1,0 +1,42 @@
+
+.nav {
+    background-color: rgb(255, 255, 255);
+    padding: 26px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+  
+    .menu{
+        display: flex;
+        list-style: none;
+        justify-content: flex-end;
+
+        &__mobile{
+            display: none;
+            background-color: rgb(255, 255, 255);
+            justify-content: space-between;
+            align-items: center; 
+        }
+
+        &__mobile--item{
+            background-color: white;
+            border: none;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        &__container{
+            display: flex;
+        }
+
+        & li a{
+            margin: 20px; 
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-decoration: none;
+            color: #000;
+        
+        }
+    }
+}
+
+
