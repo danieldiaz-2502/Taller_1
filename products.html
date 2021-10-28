@@ -13,18 +13,7 @@
 
 <body>
 
-    <div class="filters">
-        <div>
-            <label for="categories">Tipo de prenda: </label>
-            <select name="categories" id="categories">
-                <option value="">Todas</option>
-                <option value="scarfs">Bufandas</option>
-                <option value="sweaters">Sweaters</option>
-                <option value="pants">Pantalones</option>
-                <option value="skirts">Faldas</option>
-            </select>
-        </div>
-    </div>
+    
     <nav class="nav">
         <a href="./index.html">
             <img src="./img/logo.png" alt="La Bufanda Mágica Logo" class="logo">
@@ -49,11 +38,29 @@
             <img src="./img/cart.png" alt="La Bufanda Mágica Carrito" class="cart">
         </a>
     </nav>
-    <nav class="nav__filter">
-        <a>
-            <img src="./img/filterBtn.png" alt="filtros" class="filter">
-        </a>
-    </nav>
+        <div class="filters">
+            <div>
+                <label for="categories">Tipo de prenda: </label>
+                <select name="categories" id="categories">
+                    <option value="">Todas</option>
+                    <option value="scarfs">Bufandas</option>
+                    <option value="sweaters">Sweaters</option>
+                    <option value="pants">Pantalones</option>
+                    <option value="skirts">Faldas</option>
+                </select>
+            </div>
+            <div>
+                <label for="orderBy">Ordenar: </label>
+                <select name="orderBy" id="orderBy">
+                    <option value="">Ninguno</option>
+                    <option value="asc">Ascendente</option>
+                    <option value="desc">Descendente</option>
+                </select>
+            </div>
+            <a>
+                <img src="./img/filterBtn.png" alt="filtros" class="filter">
+            </a>
+        </div>
 
     <section class="section__item">
         <img src="./img/product_banner.png" alt="product_banner">

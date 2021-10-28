@@ -53,15 +53,16 @@
   color: #000;
 }
 
-.nav__filter {
+.filters {
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  list-style: none;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  margin-bottom: 50px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-bottom: 20px;
 }
 
 .section__item {

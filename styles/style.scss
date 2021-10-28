@@ -41,12 +41,15 @@
     }
 }
 
-.nav__filter {
+
+.filters {
+    background-color: rgb(255, 255, 255);
     display: flex;
-        list-style: none;
-        justify-content: flex-end;
-        margin-bottom: 50px;
+    justify-content: space-between; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
 }
+
 
 .section__item {
 
