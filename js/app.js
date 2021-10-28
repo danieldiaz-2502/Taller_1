@@ -16,6 +16,8 @@ const products = [
     },
 ];
 
+const cart = [];
+
 const productSection = document.getElementById("products");
 
 const productTemplate = (item) => {
@@ -32,10 +34,16 @@ const productTemplate = (item) => {
     `;
     productSection.appendChild(product);
 
-    const productCart = product.querySelector("product__cart");
+    const productCart = product.querySelector(".product__cart");
 
     productCart.addEventListener("click", e => {
-
+        e.preventDefault();
+        const productAdded = {
+            name: item.name,
+            image: item.image,
+        };
+        cart.push(productAdded);
+        console.log(productAdded);
     });
 }
 
