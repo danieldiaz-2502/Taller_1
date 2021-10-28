@@ -4,7 +4,7 @@ const products = [
         price: "120,000 COP",
         image: "./img/product_1.png",
         description: "Nuevo - Bufanda tipo blanket",
-        type: "bufanda"
+        type: "scarfs"
     },
 
     {
@@ -12,13 +12,21 @@ const products = [
         price: "70,000 COP",
         image: "./img/product_2.png",
         description: "Nuevo - Bufanda de tul mágico",
-        type: "bufanda"
+        type: "scarfs"
+    },
+
+    {
+        name: "Falda Tul",
+        price: "130,000 COP",
+        image: "./img/product_4.png",
+        description: "Nuevo - Falda de tul mágico",
+        type: "skirts"
     },
 ];
 
 const cart = [];
 
-const productSection = document.getElementById("products");
+const productsSection = document.getElementById("products");
 
 const productTemplate = (item) => {
     const product = document.createElement("a");
@@ -32,7 +40,7 @@ const productTemplate = (item) => {
         <button class="product__cart">Agregar al carrito</button>
     </div>
     `;
-    productSection.appendChild(product);
+    productsSection.appendChild(product);
 
     const productCart = product.querySelector(".product__cart");
 
@@ -46,6 +54,25 @@ const productTemplate = (item) => {
         console.log(productAdded);
     });
 }
+
+const filterByCategory = document.getElementById("categories");
+
+filterByCategory.addEventListener("change", e => {
+    const category = filterByCategory.value;
+    productsSection.innerHTML = "";
+    let filteredProductsByCategory;
+
+    if(category !== ""){
+        filteredProductsByCategory = products.filter((product) =>
+        product.type === category);
+    } else {
+        filteredProductsByCategory = products;
+    }
+
+    filteredProductsByCategory.forEach(product => {
+        productTemplate(product);
+    });
+});
 
 products.forEach(product => {
     productTemplate(product);
