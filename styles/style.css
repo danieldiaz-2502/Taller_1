@@ -92,13 +92,21 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .product {
   width: 300px;
   display: block;
   text-decoration: none;
-  margin: 0 20px;
+  margin: 50px;
 }
 
 .product__img {
@@ -119,5 +127,9 @@
   border: none;
   border-radius: 8px;
   background-color: black;
+}
+
+.product__cart:disabled {
+  background-color: #6d6d6d;
 }
 /*# sourceMappingURL=style.css.map */
