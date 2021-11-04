@@ -132,4 +132,20 @@
 .product__cart:disabled {
   background-color: #6d6d6d;
 }
+
+.product__item {
+  width: 80%;
+  margin: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.product__item .product__text {
+  width: 20%;
+}
+
+.product__item .product__image {
+  width: 33%;
+}
 /*# sourceMappingURL=style.css.map */
