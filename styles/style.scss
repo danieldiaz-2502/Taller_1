@@ -132,6 +132,14 @@
             background-color: rgb(109, 109, 109);
         }
     }
+    #gallery {
+        div{
+           width: 100px;
+           img{
+               width: 100%;
+           }
+        }
+    }
 }
 
 

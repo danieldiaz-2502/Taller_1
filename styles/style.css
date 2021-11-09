@@ -164,4 +164,12 @@
 .product__item .product__addToCart:disabled {
   background-color: #6d6d6d;
 }
+
+.product__item #gallery div {
+  width: 100px;
+}
+
+.product__item #gallery div img {
+  width: 100%;
+}
 /*# sourceMappingURL=style.css.map */

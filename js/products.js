@@ -7,7 +7,11 @@ const products = [
         image: "./img/product_1.png",
         description: "Nuevo - Bufanda tipo blanket",
         info: "Bufanda de tipo blanket con un diseño de tartán, a base de gabardina, para ponerse de más de 20 formas distintas. Disponible en varios colores.",
-        type: "scarfs"
+        type: "scarfs",
+        images: [
+            "./img/product_1.png",
+            "./img/product_2.png",
+        ]
     },
 
     {
