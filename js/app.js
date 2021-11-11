@@ -1,11 +1,5 @@
-const getMyCart = () => {
-    const cart = localStorage.getItem("cart");
-    return cart ? JSON.parse(cart) : [];
-}
 
-const cart = getMyCart();
-console.log(cart);
-
+let cart = [];
 const productsSection = document.getElementById("products");
 
 const productTemplate = (item) => {
