@@ -1,4 +1,3 @@
-
 let cart = [];
 const productsSection = document.getElementById("products");
 
@@ -31,10 +30,11 @@ const productTemplate = (item) => {
     `;
     productsSection.appendChild(product);
 
-    const productCart = product.querySelector(".product__cart");
+    const productCartButton = product.querySelector(".product__cart");
 
-    productCart.addEventListener("click", e => {
+    productCartButton.addEventListener("click", e => {
         e.preventDefault();
+        productCartButton.innerHTML = `<button class="product__cart" disabled>Añadido</button>`;
         const productAdded = {
             id: item.id,
             name: item.name,
@@ -43,7 +43,7 @@ const productTemplate = (item) => {
         };
         cart.push(productAdded);
         console.log(cart);
-        productCart.setAttribute("disabled", true);
+        productCartButton.setAttribute("disabled", true);
     });
 }
 
