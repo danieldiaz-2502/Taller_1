@@ -1,4 +1,10 @@
-const cart = [];
+const getMyCart = () => {
+    const cart = localStorage.getItem("cart");
+    return cart ? JSON.parse(cart) : [];
+}
+
+const cart = getMyCart();
+console.log(cart);
 
 const productsSection = document.getElementById("products");
 
@@ -39,6 +45,7 @@ const productTemplate = (item) => {
             id: item.id,
             name: item.name,
             image: item.image,
+            price: item.price
         };
         cart.push(productAdded);
         console.log(cart);
@@ -91,3 +98,16 @@ const loadProducts = () => {
 products.forEach(product => {
     productTemplate(product);
 });
+
+const user = {
+    name:"Daniel",
+    email:"daniel@hotmail.com",
+}
+
+localStorage.setItem("user", JSON.stringify(user));
+
+const userSaved = localStorage.getItem("user");
+const userJSON = JSON.parse(userSaved);
+
+console.log(userJSON);
+
