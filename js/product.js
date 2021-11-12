@@ -12,8 +12,8 @@ const productGallery = document.getElementById("gallery");
 
 productName.innerText = product.name;
 productInfo.innerText = product.info;
-productPrice.innerText = product.priceTag;
-productImage.setAttribute("src", product.image);
+productPrice.innerHTML = `<h3 class="product__price">${product.price} COP</h3>`;
+productImage.setAttribute("src", product.images[0]);
 
 const createGallery = (images) => {
     const gallery =document.createElement("div");
