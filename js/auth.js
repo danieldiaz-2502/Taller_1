@@ -1,12 +1,10 @@
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+let password;
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyAkX7mqPZb0ChCKUzSmAWXWBPKQiNM50JY",
   authDomain: "bufandafirebase.firebaseapp.com",
@@ -24,8 +22,65 @@ const loginForm = document.getElementById("login");
 const registerForm = document.getElementById("register");
 
 const createUser = async (email,password) => {
-  await createUserWithEmailAndPassword(auth,email,password);
+  try{
+    await createUserWithEmailAndPassword(auth,email,password);
+    console.log("Usuario registrado...");
+    window.location.href="./products.html";
+
+  } catch(e){
+    if(e.code === "auth/email-already-in-use" ){
+      alert("Este email ya está en uso");
+    }
+    if(e.code === "auth/weak-password" ){
+      alert("La contraseña está muy debil");
+    }
+    console.log(e);
+  } 
 }
 
-createUser();
+const login = async (email,password) => {
+  try{
+    const { user } = await signInWithEmailAndPassword(auth,email,password);
+    console.log(user)
+  } catch(e){
+    console.log(e.code);
+  }
+}
 
+registerForm.addEventListener("submit", e =>{
+  e.preventDefault();
+  const name = registerForm.name.value;
+  const email = registerForm.email.value;
+  const password = registerForm.password.value;
+  const passwordConfirmation = registerForm.passwordConfirmation.value;
+
+  if (password  === passwordConfirmation){
+
+    if (email && password){
+      createUser(email,password);
+    } else{
+      alert("Completa todos los campos");
+    }
+
+  }else{
+    alert("Las contraseñas no coinciden");
+  }
+
+});
+
+loginForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const email = registerForm.email.value;
+  const password = registerForm.password.value;
+
+  if(email && password){
+    login(email, password);
+    console.log(e.code);
+  } else {
+    alert("Completa todos los campos");
+  }
+});
+
+onAuthStateChanged(auth, (user) =>{
+   
+});

@@ -1,5 +1,6 @@
 const cartSection = document.getElementById("cart");
 let cart = [];
+
 const getMyCart = () => {
     const cart = localStorage.getItem("cart");
     return cart ? JSON.parse(cart) : [];
@@ -23,6 +24,7 @@ const renderProduct = (product) => {
 
 const renderMyCart = () => {
     const cart = getMyCart();
+    console.log(cart);
     cart.forEach(product => {
         renderProduct(product);
     })

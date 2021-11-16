@@ -1,4 +1,10 @@
-let cart = [];
+const getMyCart = () => {
+    const cart = localStorage.getItem("cart");
+    return cart ? JSON.parse(cart) : [];
+};
+
+const cart = getMyCart();
+
 const productsSection = document.getElementById("products");
 
 const productTemplate = (item) => {
@@ -38,11 +44,11 @@ const productTemplate = (item) => {
         const productAdded = {
             id: item.id,
             name: item.name,
-            image: item.image,
+            image: item.images[0],
             price: item.price
         };
         cart.push(productAdded);
-        console.log(cart);
+        localStorage.setItem("cart", JSON.stringify(cart));
         productCartButton.setAttribute("disabled", true);
     });
 }
