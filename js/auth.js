@@ -31,7 +31,7 @@ const createUser = async (email, password, userFields) => {
 
     await setDoc(doc(db, "users", userId), userFields);
 
-    window.location.href="./products.html";
+    window.location.href = "./products.html";
   } catch (e) {
     if (e.code === "auth/email-already-in-use") {
       alert("Este email ya está en uso");
@@ -61,45 +61,48 @@ const login = async (email, password) => {
   }
 }
 
-registerForm.addEventListener("submit", e => {
-  e.preventDefault();
-  const name = registerForm.name.value;
-  const email = registerForm.email.value;
-  const password = registerForm.password.value;
-  const passwordConfirmation = registerForm.passwordConfirmation.value;
-  const address = registerForm.address.value
-
-  if (password === passwordConfirmation) {
-
-    if (email && password) {
-      createUser(email, password, {
-        name,
-        address,
-        isAdmin: false,
-      });
-    } else {
-      alert("Completa todos los campos");
-    }
-
-  } else {
-    alert("Las contraseñas no coinciden");
-  }
-
-});
-
-loginForm.addEventListener("submit", e => {
-  e.preventDefault();
-  const email = registerForm.email.value;
-  const password = registerForm.password.value;
-
-  if (email && password) {
-    login(email, password);
-    console.log(e.code);
-  } else {
-    alert("Completa todos los campos");
-  }
-});
-
 onAuthStateChanged(auth, (user) => {
 
 });
+
+if (registerForm) {
+  registerForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const name = registerForm.name.value;
+    const email = registerForm.email.value;
+    const password = registerForm.password.value;
+    const passwordConfirmation = registerForm.passwordConfirmation.value;
+    const address = registerForm.address.value
+
+    if (password === passwordConfirmation) {
+
+      if (email && password) {
+        createUser(email, password, {
+          name,
+          address,
+          isAdmin: false,
+        });
+      } else {
+        alert("Completa todos los campos");
+      }
+
+    } else {
+      alert("Las contraseñas no coinciden");
+    }
+
+  });
+}
+if (loginForm) {
+  loginForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const email = registerForm.email.value;
+    const password = registerForm.password.value;
+
+    if (email && password) {
+      login(email, password);
+      console.log(e.code);
+    } else {
+      alert("Completa todos los campos");
+    }
+  });
+}
