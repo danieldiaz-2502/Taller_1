@@ -1,8 +1,28 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+let products = [];
+
+const getAllProducts = async() => {
+    const collectionRef = collection(db, "products");
+    const { docs } = await getDocs(collectionRef);
+
+    const firebaseProducts = docs.map((doc) => {
+        return{
+            ...doc.data(),
+            id: doc.uid,
+        }
+    })
+
+    firebaseProducts.forEach(product => {
+        productTemplate(product);
+    });
+
+    products = firebaseProducts;
+}
 
 const getMyCart = () => {
     const cart = localStorage.getItem("cart");
@@ -101,10 +121,6 @@ const loadProducts = () => {
     });
 }
 
-products.forEach(product => {
-    productTemplate(product);
-});
-
 const user = {
     name: "Daniel",
     email: "daniel@hotmail.com",
@@ -112,8 +128,5 @@ const user = {
 
 localStorage.setItem("user", JSON.stringify(user));
 
-const userSaved = localStorage.getItem("user");
-const userJSON = JSON.parse(userSaved);
-
-console.log(userJSON);
+getAllProducts();
 
