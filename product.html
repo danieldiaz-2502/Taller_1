@@ -34,7 +34,7 @@
             <img src="./img/cart.png" alt="La Bufanda Mágica Carrito" class="cart">
         </a>
     </nav>
-    <div class="product__item">
+    <div class="product__item" id="product">
         <div class="product__text" id="productText">
             <h2 class="product__name" id="productName">Nombre del producto</h2>
             <p class="product__info" id="productInfo">jaja</p>
@@ -46,10 +46,10 @@
         </div>
         <div id="gallery" class="gallery"></div>
     </div>
-
-    <script src="./js/products.js"></script>
-    <script src="./js/product.js"></script>
-    <script src="./js/app.js"></script>
+    <div class="loader" id="spinner"></div>
+    <script src="./js/utils.js"></script>
+    <script type="module" src="./js/product.js"></script>
+    <script type="module" src="./js/app.js"></script>
 </body>
 
 </html>

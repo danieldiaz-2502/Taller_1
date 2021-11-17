@@ -9,7 +9,7 @@ const firebaseConfig = {
   };
 
 const formatCurrency = (price) => {
-    return new Intl.NumberFormat("es-Co", {
+    return new Intl.NumberFormat("es-CO", {
         style: "currency",
         cyrrency: "COP",
         minimumFractionDigits: 0,

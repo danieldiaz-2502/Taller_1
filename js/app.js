@@ -11,9 +11,9 @@ const getAllProducts = async() => {
     const { docs } = await getDocs(collectionRef);
 
     const firebaseProducts = docs.map((doc) => {
-        return{
+        return {
             ...doc.data(),
-            id: doc.uid,
+            id: doc.id,
         }
     })
 
@@ -34,7 +34,7 @@ const cart = getMyCart();
 const productsSection = document.getElementById("products");
 
 const productTemplate = (item) => {
-
+    console.log(item);
     const product = document.createElement("a");
 
     product.className = "product";
