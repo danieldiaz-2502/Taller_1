@@ -1,3 +1,9 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 const getMyCart = () => {
     const cart = localStorage.getItem("cart");
     return cart ? JSON.parse(cart) : [];
@@ -100,8 +106,8 @@ products.forEach(product => {
 });
 
 const user = {
-    name:"Daniel",
-    email:"daniel@hotmail.com",
+    name: "Daniel",
+    email: "daniel@hotmail.com",
 }
 
 localStorage.setItem("user", JSON.stringify(user));
