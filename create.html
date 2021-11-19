@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <form id="createProduct">
+        <h1>Agrega un nuevo producto</h1>
+        <input type="text" name="name" placeholder="Nombre del producto">
+        <input type="number" name="price" placeholder="Precio del producto">
+
+        <textarea name="description" placeholder="Descripción corta del producto"></textarea>
+        <textarea name="info" placeholder="Información del producto"></textarea>
+
+        <div class="images">
+            <div class="images__input">
+                <label for="name">Fotografía principal</label>
+                <input type="file" accept=".jpg,.png" name="image" id="mainImage">
+            </div>
+            <img src="" alt="" id="preview">
+        </div>
+        <div class="category">
+            <label for="type">Tipo de producto</label>
+            <select name="type">
+                <option value="scarfs">Bufandas</option>
+                <option value="sweaters">Sweaters</option>
+                <option value="pants">Pantalones</option>
+                <option value="skirts">Faldas</option>
+                <option value="shoes">Zapatos</option>
+            </select>
+        </div>
+        <div class="images">
+            <label for="images">Fotos de galería</label>
+            <input type="file" accept=".jpg,.png" multiple name="images">
+        </div>
+
+        <input class="create__button" type="submit" value="AGREGAR PRODUCTO" id="submitButton">
+        <p id="feedback"></p>
+    </form>
+
+    <script src="./js/utils.js"></script>
+    <script type="module" src="./js/create-product.js"></script>
+</body>
+
+</html>

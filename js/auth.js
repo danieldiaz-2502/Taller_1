@@ -2,7 +2,7 @@
 let password;
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -15,18 +15,19 @@ const firebaseConfig = {
   measurementId: "G-2DSWXGDEHM"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 const loginForm = document.getElementById("login");
 const registerForm = document.getElementById("register");
+const logoutButton = document.getElementById("logout");
+
+console.log(auth);
 
 const createUser = async (email, password, userFields) => {
   try {
     const { user } = await createUserWithEmailAndPassword(auth, email, password);
     const userId = user.uid;
-    console.log("Usuario registrado...");
     const userInfo = await getUserInfo(user.uid);
 
     await setDoc(doc(db, "users", userId), userFields);
@@ -55,15 +56,21 @@ const getUserInfo = async (userId) => {
 const login = async (email, password) => {
   try {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
-    console.log(user)
+    const userInfo = await getUserInfo(user.uid);
+    //console.log(`Bienvenido ${userInfo.name}`);
+    console.log(userInfo);
   } catch (e) {
     console.log(e.code);
   }
 }
 
-onAuthStateChanged(auth, (user) => {
-
-});
+const logout = async () => {
+  try {
+    await signOut(auth);
+  } catch (e) {
+    console.log(e);
+  }
+}
 
 if (registerForm) {
   registerForm.addEventListener("submit", e => {
@@ -94,15 +101,29 @@ if (registerForm) {
 }
 if (loginForm) {
   loginForm.addEventListener("submit", e => {
+    console.log
     e.preventDefault();
-    const email = registerForm.email.value;
-    const password = registerForm.password.value;
+    const email = loginForm.email.value;
+    const password = loginForm.password.value;
 
     if (email && password) {
       login(email, password);
-      console.log(e.code);
     } else {
       alert("Completa todos los campos");
     }
   });
+
 }
+
+logoutButton.addEventListener("click", e => {
+  logout();
+  console.log(auth);
+})
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    logoutButton.classList.add("visible");
+  } else {
+    logoutButton.classList.remove("visible");
+  }
+});

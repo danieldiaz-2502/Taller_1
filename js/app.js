@@ -1,12 +1,16 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
+import { getFirestore, collection, getDocs, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const auth = getAuth();
 let products = [];
+let cart = [];
+let userLogged = null;
 
-const getAllProducts = async() => {
+const getAllProducts = async () => {
     const collectionRef = collection(db, "products");
     const { docs } = await getDocs(collectionRef);
 
@@ -24,23 +28,35 @@ const getAllProducts = async() => {
     products = firebaseProducts;
 }
 
+
+const getFirebaseCart = async (userId) => {
+    const docRef = doc(db, "cart", userId);
+    const docSnap = await getDoc(docRef);
+    return docSnap.exists() ? docSnap.data() : {
+        products: []
+    }
+};
+
+const addProductsToCart = async (products) => {
+    await setDoc(doc(db, "cart", userLogged.uid), {
+        products
+    });
+};
+
 const getMyCart = () => {
     const cart = localStorage.getItem("cart");
     return cart ? JSON.parse(cart) : [];
 };
 
-const cart = getMyCart();
-
 const productsSection = document.getElementById("products");
 
 const productTemplate = (item) => {
-    console.log(item);
     const product = document.createElement("a");
 
     product.className = "product";
 
     product.setAttribute("href", `./product.html?id=${item.id}`);
-
+    console.log(cart);
     const isAdded = cart.some(product => product.id === item.id);
     let buttonHtml;
 
@@ -74,6 +90,9 @@ const productTemplate = (item) => {
             price: item.price
         };
         cart.push(productAdded);
+        if (userLogged) {
+            addProductsToCart(cart);
+        }
         localStorage.setItem("cart", JSON.stringify(cart));
         productCartButton.setAttribute("disabled", true);
     });
@@ -121,12 +140,16 @@ const loadProducts = () => {
     });
 }
 
-const user = {
-    name: "Daniel",
-    email: "daniel@hotmail.com",
-}
+onAuthStateChanged(auth, async (user) => {
+    
+    if (user) {
+        let result = await getFirebaseCart(user.uid);
+        cart = result.products;
+        userLogged = user;
+    } else {
+        cart = getMyCart();
+    }
 
-localStorage.setItem("user", JSON.stringify(user));
-
-getAllProducts();
+    getAllProducts();
+});
 
