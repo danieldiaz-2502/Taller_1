@@ -55,7 +55,7 @@ const renderProduct = (product) => {
         <img src="${product.image}" alt="" class="product__thumbnail">
         <div class="product__info">
             <h2 class="product__name">${product.name}</h2>
-            <h3 class="product__price">${ formatCurrency(product.price)}</h3>
+            <h3 class="product__price">${ formatCurrency(product.price)} COP</h3>
         </div>
         <button class="product__cart product__cart--thumb">Remove</button>
     `;
