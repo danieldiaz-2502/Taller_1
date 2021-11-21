@@ -4,8 +4,8 @@ import { getFirestore, collection, getDocs, doc, getDoc, setDoc } from "https://
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
 const auth = getAuth();
+
 let products = [];
 let cart = [];
 let userLogged = null;
@@ -69,7 +69,7 @@ const productTemplate = (item) => {
     product.innerHTML = `
     <img src="${item.images[0]}" alt="" class="product__img">
     <div class="product__description">
-        <h3 class="product__price">${item.price} COP</h3>
+        <h3 class="product__price">${ formatCurrency(item.price)} COP</h3>
         <p class="product__tag">${item.description}</p>
         <h4>MÁS INFORMACIÓN</h4>
 

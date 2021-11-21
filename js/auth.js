@@ -80,6 +80,7 @@ if (registerForm) {
     const password = registerForm.password.value;
     const passwordConfirmation = registerForm.passwordConfirmation.value;
     const address = registerForm.address.value
+    const city = registerForm.city.value
 
     if (password === passwordConfirmation) {
 
@@ -87,6 +88,9 @@ if (registerForm) {
         createUser(email, password, {
           name,
           address,
+          city,
+          email,
+          password,
           isAdmin: false,
         });
       } else {

@@ -41,13 +41,30 @@
         </div>
     </nav>
 
-    <ul class="products" id="cart">
-    </ul>
+    <div class="checkout__section">
+        <section class="checkout__products">
+            <ul class="products" id="cart"></ul>
+            <h3 class="total" id="total"></h3>
+        </section>
 
-    <h3 class="total" id="total"></h3>
+        <section class="checkout__info">
+            <button id="autofill">Usar mismos datos del usuario</button>
+            <form id="checkout">
+                <input type="text" name="name" placeholder="Nombre completo">
+                <input type="text" name="city" placeholder="Cuidad">
+                <input type="text" name="address" placeholder="Dirección">
+                <select name="payment">
+                    <option value="contraentrega">Pago contra entrega</option>
+                    <option value="pse">PSE</option>
+                </select>
+                <input type="submit" value="COMPLETAR COMPRA">
+                <button id="autofill">RELLENAR CON LOS DATOS DEL USUARIO</button>
+            </form>
+        </section>
+    </div>
 
     <script src="./js/utils.js"></script>
-    <script type ="module" src="./js/cart.js"></script>
+    <script type="module" src="./js/cart.js"></script>
 </body>
 
 </html>

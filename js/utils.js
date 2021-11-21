@@ -8,10 +8,10 @@ const firebaseConfig = {
     measurementId: "G-2DSWXGDEHM"
   };
 
-const formatCurrency = (price) => {
+  const formatCurrency = (price) => {
     return new Intl.NumberFormat("es-CO", {
         style: "currency",
-        cyrrency: "COP",
+        currency: "COP",
         minimumFractionDigits: 0,
     }).format(price);
-}
+};
