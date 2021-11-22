@@ -570,6 +570,10 @@
   background-color: black;
 }
 
+.mobile__logo {
+  display: none;
+}
+
 @media all and (min-width: 1000px) {
   .menu__container {
     display: block;
@@ -577,8 +581,13 @@
 }
 
 @media all and (max-width: 1000px) {
+  .login__menu {
+    display: none;
+  }
   .section__item img {
     width: 90%;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
   .filters {
     font-size: 3.2vmin;
@@ -606,6 +615,8 @@
   .product img {
     width: 70%;
     height: inherit;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
   .product__tag {
     width: 80%;
@@ -660,7 +671,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
   }
   .product__item .product__text {
     margin: 10px;
@@ -733,6 +744,50 @@
 }
 
 @media all and (max-width: 1000px) {
+  .checkout__section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+  .checkout__products {
+    width: 100%;
+    padding: 0px;
+  }
+  .checkout__info {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .login__menu {
+    display: none;
+  }
+  .mobile__logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 20px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .auth__inputs {
+    width: 70%;
+  }
+  .auth h2 {
+    display: none;
+  }
+  .auth img {
+    display: none;
+  }
   .footer__info {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -744,6 +799,10 @@
   .footer__menu {
     display: none;
   }
+  .newsletter {
+    background-color: #f0f0f0;
+    margin-bottom: 50px;
+  }
   .newsletter__form {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -753,7 +812,7 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .newsletter input[type=email] {
+  .newsletter input[type="email"] {
     margin-bottom: 2em;
   }
   .footer__info--item {
@@ -764,9 +823,6 @@
   }
   .section__item-text p {
     font-size: 2.5vmin;
-  }
-  .section__item {
-    height: 150px;
   }
 }
 /*# sourceMappingURL=style.css.map */
