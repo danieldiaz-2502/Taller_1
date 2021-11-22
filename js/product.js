@@ -49,7 +49,7 @@ const loadProductInfo = (product) => {
     console.log(product);
     productName.innerText = product.name;
     productInfo.innerText = product.info;
-    productPrice.innerHTML = `<h3 class="product__price">${product.price} COP</h3>`;
+    productPrice.innerHTML = `<h3 class="product__price">${formatCurrency(product.price)} COP</h3>`;
     productImage.setAttribute("src", product.images[0]);
     if (product.images) {
         createGallery(product.images)

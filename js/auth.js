@@ -57,7 +57,6 @@ const login = async (email, password) => {
   try {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
     const userInfo = await getUserInfo(user.uid);
-    //console.log(`Bienvenido ${userInfo.name}`);
     console.log(userInfo);
   } catch (e) {
     console.log(e.code);
@@ -67,6 +66,7 @@ const login = async (email, password) => {
 const logout = async () => {
   try {
     await signOut(auth);
+    const { user } = null;
   } catch (e) {
     console.log(e);
   }
@@ -121,7 +121,6 @@ if (loginForm) {
 
 logoutButton.addEventListener("click", e => {
   logout();
-  console.log(auth);
 })
 
 onAuthStateChanged(auth, (user) => {
