@@ -469,7 +469,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 100%;
   background-color: #e0e0e0;
   padding: 0;
   height: 500px;
