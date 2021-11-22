@@ -121,7 +121,7 @@ const loadProducts = () => {
 
     if (category !== "") {
         filteredProductsByCategory = products.filter((product) =>
-            product.type === category);
+        product.type === category);
     } else {
         filteredProductsByCategory = products;
     }

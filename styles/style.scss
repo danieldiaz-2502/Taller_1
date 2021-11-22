@@ -306,10 +306,15 @@
     #checkout {
         flex-direction: column;
         display: flex;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
         input {
             margin: 10px;
             padding: 5px;
             border: none;
+    width: 80%;
         }
         input[type="submit"] {
             color: white;
@@ -326,18 +331,20 @@
     .checkout__info {
         display: flex;
         flex-direction: column;
-        width: 30%;
+        width: 100%;
         background-color: rgb(224, 224, 224);
-        padding: 30px;
+        padding: 0;
         height: 500px;
-
+        justify-content: center;
+        align-items: center;
         button {
             color: white;
             padding: 10px;
             border: none;
             border-radius: 8px;
             background-color: black;
-            width: 100%;
+            width: 80%;
+            justify-content: center;
         }
     }
 }
@@ -405,7 +412,7 @@
     }
 }
 
-.mobile__logo{
+.mobile__logo {
     display: none;
 }
 
@@ -416,7 +423,10 @@
 }
 
 @media all and (max-width: 1000px) {
-    .login__menu{
+    .product__description {
+        text-align: center;
+    }
+    .login__menu {
         display: none;
     }
     .section__item {
@@ -442,13 +452,14 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        align-items: center;
         img {
             width: 70%;
             height: inherit;
             object-fit: contain;
         }
         &__tag {
-            width: 80%;
+            width: 100%;
         }
         &__item {
             display: flex;
@@ -532,40 +543,40 @@
             }
         }
     }
-
 }
 
 @media all and (max-width: 1000px) {
-    .checkout__section{
+    .checkout__section {
         flex-direction: column;
         display: flex;
         width: 100%;
     }
-    .checkout__products{
+    .checkout__products {
         width: 100%;
         padding: 0px;
     }
-    .checkout__info{
+    .checkout__info {
         width: 100%;
         display: flex;
+        padding: 0;
     }
-    .login__menu{
+    .login__menu {
         display: none;
     }
-    .mobile__logo{
+    .mobile__logo {
         display: flex;
         margin: 20px;
         justify-content: center;
         align-items: center;
     }
-    .auth{
-        &__inputs{
+    .auth {
+        &__inputs {
             width: 70%;
         }
-        h2{
+        h2 {
             display: none;
         }
-        img{
+        img {
             display: none;
         }
     }
