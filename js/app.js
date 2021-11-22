@@ -68,7 +68,7 @@ const productTemplate = (item) => {
     product.innerHTML = `
     <img src="${item.images[0]}" alt="" class="product__img">
     <div class="product__description">
-        <h3 class="product__price">${ formatCurrency(item.price)} COP</h3>
+        <h3 class="product__price">${formatCurrency(item.price)} COP</h3>
         <p class="product__tag">${item.description}</p>
         <h4>MÁS INFORMACIÓN</h4>
 
@@ -120,7 +120,7 @@ const loadProducts = () => {
 
     if (category !== "") {
         filteredProductsByCategory = products.filter((product) =>
-        product.type === category);
+            product.type === category);
     } else {
         filteredProductsByCategory = products;
     }
@@ -140,7 +140,7 @@ const loadProducts = () => {
 }
 
 onAuthStateChanged(auth, async (user) => {
-    
+
     if (user) {
         let result = await getFirebaseCart(user.uid);
         cart = result.products;

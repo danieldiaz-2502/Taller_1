@@ -79,7 +79,7 @@ const renderMyCart = (cart) => {
         renderProduct(product);
     });
 
-    totalSection.innerText = `Total: ${ formatCurrency(total)}`;
+    totalSection.innerText = `Total: ${formatCurrency(total)}`;
 };
 
 const deleteCart = async () => {
