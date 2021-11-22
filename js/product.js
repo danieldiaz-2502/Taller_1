@@ -1,4 +1,3 @@
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
 
@@ -12,7 +11,6 @@ const getProduct = async () => {
 
     const docRef = doc(db, "products", productId);
     const docSnap = await getDoc(docRef);
-    console.log(docSnap);
     const data = docSnap.data();
 
     productSection.classList.add("loaded");
@@ -32,7 +30,6 @@ const productGallery = document.getElementById("gallery");
 const createGallery = (images) => {
     const gallery = document.createElement("div");
 
-    console.log(images);
     images.forEach(image => {
         const currentImage = document.createElement("img");
         currentImage.setAttribute("src", image);
@@ -41,12 +38,10 @@ const createGallery = (images) => {
         });
         gallery.appendChild(currentImage);
     });
-    console.log(productGallery);
     productGallery.appendChild(gallery);
 }
 
 const loadProductInfo = (product) => {
-    console.log(product);
     productName.innerText = product.name;
     productInfo.innerText = product.info;
     productPrice.innerHTML = `<h3 class="product__price">${formatCurrency(product.price)} COP</h3>`;

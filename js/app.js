@@ -56,7 +56,6 @@ const productTemplate = (item) => {
     product.className = "product";
 
     product.setAttribute("href", `./product.html?id=${item.id}`);
-    console.log(cart);
     const isAdded = cart.some(product => product.id === item.id);
     let buttonHtml;
 

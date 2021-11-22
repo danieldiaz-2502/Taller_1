@@ -43,7 +43,7 @@ const getUserInfo = async (userId) => {
         const docSnap = await getDoc(docRef);
         return docSnap.data();
     } catch (e) {
-        console.log(e.code);
+        console.log(e)
     }
 }
 
@@ -86,9 +86,8 @@ const deleteCart = async () => {
     try {
         await deleteDoc(doc(db, "cart", userLogged.uid));
         renderMyCart([]);
-        console.log("Carrito de compras actualizado...");
     } catch (e) {
-        console.log(e);
+        console.log(e)
     }
 };
 
@@ -149,7 +148,6 @@ onAuthStateChanged(auth, async (user) => {
             ...user,
             ...userInfo
         };
-        console.log(userInfo);
     } else {
         cart = getMyCart();
         renderMyCart(cart);

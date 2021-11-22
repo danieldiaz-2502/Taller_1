@@ -20,7 +20,7 @@ const uploadMainImage = async (file) => {
         const image = await imageUploadedReference(file);
         return getDownloadURL(ref(storage, image.ref.fullPath));
     } catch (e) {
-        console.log(e);
+        console.log(e)
     }
 };
 
@@ -43,7 +43,6 @@ const createProduct = async () => {
     const type = createProductForm.type.value;
     const mainImage = createProductForm.image.files[0];
     const gallery = createProductForm.images.files;
-    console.log(gallery);
     
     if (name && price && info && type && mainImage && description) {
         feedback.innerText = "Subiendo el producto...";
@@ -70,11 +69,10 @@ const createProduct = async () => {
             feedback.innerText = "¡Producto añadido correctamente!";
         } catch (e) {
             feedback.innerText = "¡algo salió mal!";
-            console.log(e);
+            console.log(e)
         }
     } else {
         alert("Completa todos los campos...");
-        console.log("Completa todos los campos...");
     }
 };
 

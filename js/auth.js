@@ -1,4 +1,3 @@
-
 let password;
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
@@ -22,8 +21,6 @@ const loginForm = document.getElementById("login");
 const registerForm = document.getElementById("register");
 const logoutButton = document.getElementById("logout");
 
-console.log(auth);
-
 const createUser = async (email, password, userFields) => {
   try {
     const { user } = await createUserWithEmailAndPassword(auth, email, password);
@@ -40,7 +37,7 @@ const createUser = async (email, password, userFields) => {
     if (e.code === "auth/weak-password") {
       alert("La contraseña está muy debil");
     }
-    console.log(e);
+    console.log(e)
   }
 }
 const getUserInfo = async (userId) => {
@@ -49,7 +46,7 @@ const getUserInfo = async (userId) => {
     const docSnap = await getDoc(docRef);
     return docSnap.data();
   } catch (e) {
-    console.log(e.code);
+    console.log(e)
   }
 }
 
@@ -57,9 +54,8 @@ const login = async (email, password) => {
   try {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
     const userInfo = await getUserInfo(user.uid);
-    console.log(userInfo);
   } catch (e) {
-    console.log(e.code);
+    console.log(e)
   }
 }
 
@@ -68,7 +64,7 @@ const logout = async () => {
     await signOut(auth);
     const { user } = null;
   } catch (e) {
-    console.log(e);
+    console.log(e)
   }
 }
 
@@ -105,7 +101,6 @@ if (registerForm) {
 }
 if (loginForm) {
   loginForm.addEventListener("submit", e => {
-    console.log
     e.preventDefault();
     const email = loginForm.email.value;
     const password = loginForm.password.value;
