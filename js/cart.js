@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
-import { getFirestore, collection, addDoc, doc, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, doc, getDoc, deleteDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -20,13 +20,31 @@ const getMyCart = () => {
     return cart ? JSON.parse(cart) : [];
 };
 
-const removeProduct = (productId) => {
+const removeProduct = async (productId) => {
+
     const cart = getMyCart();
+
     const newCart = cart.filter(product => product.id !== productId);
 
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    try {
+        if (newCart.length) {
+            await setDoc(doc(db, "cart", userLogged.uid), {
+                products: newCart
+            });
+        } else {
 
-    renderMyCart();
+            await deleteDoc(doc(db, "cart", userLogged.uid));
+        }
+    } catch (error) {
+        console.log(error);
+    }
+
+
+    localStorage.setItem("cart", JSON.stringify(newCart));
+    console.log(productId);
+
+    renderMyCart(newCart);
+
 };
 
 const getFirebaseCart = async (userId) => {

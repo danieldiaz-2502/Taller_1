@@ -169,7 +169,12 @@
         sans-serif;
     align-items: center;
     justify-content: center;
-
+    &.hidden {
+        display: none;
+    }
+    &.visible {
+        display: block;
+    }
     &__inputs {
         display: flex;
         flex-direction: column;
@@ -256,11 +261,11 @@
     .images {
         margin-bottom: 20px;
         display: flex;
-            flex-direction: column;
-            label{
-                margin-bottom: 20px;
-            }
-        &__input{
+        flex-direction: column;
+        label {
+            margin-bottom: 20px;
+        }
+        &__input {
             display: flex;
             flex-direction: column;
         }
@@ -324,7 +329,7 @@
             margin: 10px;
             padding: 5px;
             border: none;
-    width: 80%;
+            width: 80%;
         }
         input[type="submit"] {
             color: white;
@@ -355,7 +360,7 @@
             width: 80%;
             justify-content: center;
         }
-        select{
+        select {
             width: 80%;
         }
     }

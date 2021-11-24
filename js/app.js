@@ -10,6 +10,8 @@ let products = [];
 let cart = [];
 let userLogged = null;
 
+const Ahidden = document.getElementById("Ahidden");
+
 const getAllProducts = async () => {
     const collectionRef = collection(db, "products");
     const { docs } = await getDocs(collectionRef);
@@ -139,16 +141,33 @@ const loadProducts = () => {
     });
 }
 
+const getUserInfo = async (userId) => {
+
+    try {
+        const docRef = doc(db, "users", userId);
+        const docSnap = await getDoc(docRef);
+        return docSnap.data();
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 onAuthStateChanged(auth, async (user) => {
 
     if (user) {
+        const userInfo = await getUserInfo(user.uid);
+        if (userInfo.isAdmin == true) {
+            Ahidden.classList.add("visible");
+        } else {
+            Ahidden.classList.remove("visible");
+        };
         let result = await getFirebaseCart(user.uid);
         cart = result.products;
         userLogged = user;
     } else {
         cart = getMyCart();
+        Ahidden.classList.remove("visible");
     }
-
     getAllProducts();
 });
 

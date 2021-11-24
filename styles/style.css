@@ -227,6 +227,14 @@
           justify-content: center;
 }
 
+.auth.hidden {
+  display: none;
+}
+
+.auth.visible {
+  display: block;
+}
+
 .auth__inputs {
   display: -webkit-box;
   display: -ms-flexbox;
